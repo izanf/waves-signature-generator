@@ -76,7 +76,7 @@ export function generate<T>(fields: Array<ByteProcessor | number>): ISignatureGe
             });
         } else if (typeof field === 'number') {
             // All static data must be converted to bytes as well
-            byteProviders.push(Uint8Array.from([field]));
+            byteProviders.push(new Uint8Array([field]));
         } else {
             errors.push({ ...ERRORS.FIELD_ERROR, field });
         }
